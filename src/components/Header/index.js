@@ -8,7 +8,7 @@ import {RiCloseCircleFill} from 'react-icons/ri'
 import './index.css'
 
 class Header extends Component {
-  state = {isMenuVisible: true, isSearchActive: false}
+  state = {isMenuVisible: false, isSearchActive: false}
 
   onClickSearch = () => {
     if (this.getActiveRoute() === '/') {
