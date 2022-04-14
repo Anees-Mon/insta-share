@@ -1,11 +1,11 @@
-﻿
-# Insta Share
-Insta Share is a self-made version of Instagram (aka Instagram Clone) using React JS
-Enjoy a seamless experience with its Material design & Responsive UI
+﻿# Insta Share
 
-Get a real-time experience of Insta Share [here][websiteUrl]
+Insta Share is a self-made version of Instagram (aka Instagram Clone) using React JS. Enjoy a seamless experience with its Material design & Responsive UI
+
+Get a real-time experience of Insta Share [here][websiteurl]
 
 ## Features
+
 - Login with username and password
 - To login as a different user, use the logout functionality
 - Responsive header with interactive links for easy navigation
@@ -21,6 +21,7 @@ Get a real-time experience of Insta Share [here][websiteUrl]
 - When a specific section of a page fails to load due to downtime, _retry_ button can be used to reload the particular section instead of the entire page.
 
 ## Functionalities
+
 - Login and logout functionality with 30-day logged in period
 - Display error on using an invalid username or password for login
 - Redirect _unauthenticated users_ to Login
@@ -34,19 +35,20 @@ Get a real-time experience of Insta Share [here][websiteUrl]
 - When the HTTP GET request made is unsuccessful, then the failure view along with a retry button is displayed throught the application.
 
 ## Tech
+
 - HTML
 - CSS
 - React JS
 
-Insta Share is open sourced with a [public repository][gitRepoUrl]
- on GitHub
- 
- ## Tools
- - React router
- - React slick
- - JS cookie
- - React spinner
- - React icons
+Insta Share is open sourced with a [public repository][gitrepourl] on GitHub
+
+## Tools
+
+- React router
+- React slick
+- JS cookie
+- React spinner
+- React icons
 
 ## Installation
 
@@ -129,19 +131,16 @@ npm start
 <br/>
 </details>
 
-
 ## Links
 
-| Name | URL |
-| ------ | ------ |
-| Insta Share | [aneesinstashare.ccbp.tech][websiteUrl] |
-| GitHub | [github.com/Anees-Mon/insta-share][gitRepoUrl] |
+| Name        | URL                                            |
+| ----------- | ---------------------------------------------- |
+| Insta Share | [aneesinstashare.ccbp.tech][websiteurl]        |
+| GitHub      | [github.com/Anees-Mon/insta-share][gitrepourl] |
 
 ## License
 
-MIT
-**Free app, get your hands dirty!**
+MIT **Free app, get your hands dirty!**
 
-   [websiteUrl]: <https://aneesinstashare.ccbp.tech/>
-   [gitRepoUrl]: <https://github.com/Anees-Mon/insta-share.git>
-
+[websiteurl]: https://aneesinstashare.ccbp.tech/
+[gitrepourl]: https://github.com/Anees-Mon/insta-share.git
