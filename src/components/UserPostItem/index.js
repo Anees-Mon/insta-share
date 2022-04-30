@@ -79,6 +79,12 @@ class UserPostItem extends Component {
             <p className="upi-user-name">{userName}</p>
           </Link>
         </div>
+        <div className="upi-image-background-container">
+          <div
+            className="upi-image-background"
+            style={{backgroundImage: `url(${imageUrl})`}}
+          />
+        </div>
         <img className="upi-image" alt="post" src={imageUrl} />
         <div className="upi-footer">
           <div className="upi-reactions-container">
