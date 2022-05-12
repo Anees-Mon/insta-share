@@ -138,31 +138,14 @@
   .upi-header {
     margin-bottom: 15px;
   }
-  .upi-image-background-container {
-    height: 450px;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 15px;
-  }
-  .upi-image-background {
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
-    height: 480px;
-    width: 103%;
-    right: 10px;
-    bottom: 10px;
-    align-self: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
+
   .upi-image {
     align-self: center;
-    height: 450px;
-    width: 60%;
-    position: absolute;
-    margin-top: 47px;
+    width: auto;
+    max-height: 300px;
+    margin-bottom: 5px;
   }
+
   .upi-reactions-container {
     margin-bottom: 12px;
   }
@@ -191,15 +174,5 @@
 
   .upi-time {
     font-size: 12px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .upi-image {
-    width: 40%;
-  }
-}
-@media screen and (min-width: 1360px) {
-  .upi-image {
-    width: 30%;
   }
 }
