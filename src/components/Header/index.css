@@ -35,20 +35,16 @@
   width: 25px;
   height: 25px;
 }
-.nav-menu-sm {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .nav-menu-lg {
   display: none;
 }
-.nav-menu-list {
+.nav-menu-sm {
   display: flex;
   align-items: center;
   list-style-type: none;
   padding-left: 0px;
+  justify-content: space-between;
 }
 .nav-item {
   margin-right: 10px;
@@ -77,13 +73,13 @@
   font-weight: 500;
   font-size: 12px;
 }
-.header-close-button {
+.header-theme-button {
   padding: 0px;
   background-color: transparent;
   border: 0px;
 }
 
-.header-close-icon {
+.header-theme-icon {
   width: 22px;
   height: 22px;
 }
