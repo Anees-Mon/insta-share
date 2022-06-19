@@ -3,7 +3,13 @@ import styled from 'styled-components'
 export const Navbar = styled.nav`
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  padding-top: 5px;
+  background-color: ${props => (props.dark ? '#303030' : '#ffffff')};
+
+  @media screen and (min-width: 768px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 `
 export const NavContent = styled.div`
   width: 85%;
@@ -95,8 +101,8 @@ export const HeaderLogoutButton = styled.button`
 `
 
 export const HeaderSearchContainerSm = styled.div`
-  background-color: #fafafa;
-  border: 1px solid #dbdbdb;
+  background-color: ${props => (props.dark ? '#505050' : '#fafafa')};
+  border: 1px solid ${props => (props.dark ? '#505050' : '#dbdbdb')};
   border-radius: 3px;
   display: flex;
   height: 28px;
@@ -111,7 +117,7 @@ export const HeaderSearch = styled.input`
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 14px;
-  color: #262626;
+  color: ${props => (props.dark ? '#fafafa' : '#666666')};
   background-color: transparent;
   border: 0px;
   padding-left: 10px;
@@ -121,7 +127,7 @@ export const HeaderSearch = styled.input`
 `
 
 export const HeaderSearchButton = styled.button`
-  background: #dbdbdb;
+  background-color: ${props => (props.dark ? '#202020' : '#dbdbdb')};
   border-radius: 0px 2px 2px 0px;
   border: 0px;
   padding: 0px;
@@ -146,8 +152,8 @@ export const NavMenuLg = styled.ul`
 `
 
 export const HeaderSearchContainerLg = styled(NavItem)`
-  background-color: #fafafa;
-  border: 1px solid #dbdbdb;
+  background-color: ${props => (props.dark ? '#505050' : '#fafafa')};
+  border: 1px solid ${props => (props.dark ? '#505050' : '#dbdbdb')};
   border-radius: 3px;
   display: flex;
   height: 24px;
@@ -158,7 +164,8 @@ export const NavbarFooterRule = styled.hr`
   @media screen and (min-width: 768px) {
     display: block;
     border-top: none;
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 1px solid ${props => (props.dark ? '#303030' : '#dbdbdb')};
     margin-bottom: 25px;
+    margin-top: 0px;
   }
 `

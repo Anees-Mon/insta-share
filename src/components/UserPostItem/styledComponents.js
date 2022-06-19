@@ -4,13 +4,14 @@ export const UpiCard = styled.li`
   margin-bottom: 30px;
   @media screen and (min-width: 768px) {
     width: 100%;
-    border: 1px solid #dbdbdb;
+    border: 1px solid ${props => (props.dark ? '#202020' : '#dbdbdb')};
     box-sizing: border-box;
     border-radius: 4px;
     padding: 15px 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: ${props => (props.dark ? '#101010' : '#ffffff')};
   }
 `
 export const UpiHeader = styled.div`

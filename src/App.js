@@ -8,6 +8,7 @@ import UserProfile from './components/UserProfile'
 import MyProfile from './components/MyProfile'
 import NotFound from './components/NotFound'
 import ThemeContext from './context/ThemeContext'
+import {ThemeContainer} from './styledComponents'
 
 import './App.css'
 
@@ -23,13 +24,15 @@ class App extends Component {
 
     return (
       <ThemeContext.Provider value={{isDark, toggleTheme: this.toggleTheme}}>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute exact path="/users/:id" component={UserProfile} />
-          <ProtectedRoute exact path="/my-profile" component={MyProfile} />
-          <NotFound />
-        </Switch>
+        <ThemeContainer dark={isDark}>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <ProtectedRoute exact path="/" component={Home} />
+            <ProtectedRoute exact path="/users/:id" component={UserProfile} />
+            <ProtectedRoute exact path="/my-profile" component={MyProfile} />
+            <NotFound />
+          </Switch>
+        </ThemeContainer>
       </ThemeContext.Provider>
     )
   }

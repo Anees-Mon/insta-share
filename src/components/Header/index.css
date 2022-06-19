@@ -19,7 +19,7 @@
   border: none;
 }
 .active-menu {
-  color: #4094ef;
+  color: #4094ef !important;
 }
 
 .header-theme-icon {

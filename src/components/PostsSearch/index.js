@@ -11,8 +11,6 @@ import {
   SearchResultsContainer,
 } from './styledComponents'
 
-import './index.css'
-
 const apiStatusConstants = {
   initial: 'INITIAL',
   inProgress: 'IN_PROGRESS',

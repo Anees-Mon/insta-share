@@ -6,6 +6,7 @@ import {FaRegComment} from 'react-icons/fa'
 import {BiShareAlt} from 'react-icons/bi'
 import {FcLike} from 'react-icons/fc'
 
+import ThemeContext from '../../context/ThemeContext'
 import {
   UpiCard,
   UpiHeader,
@@ -85,49 +86,56 @@ class UserPostItem extends Component {
     const {caption, imageUrl} = postDetails
 
     return (
-      <UpiCard>
-        <UpiHeader>
-          <UpiAvatarContainer>
-            <UpiAvatar alt="post author profile" src={profilePic} />
-          </UpiAvatarContainer>
-          <Link className="upi-username-link" to={`/users/${userId}`}>
-            <UpiUserName>{userName}</UpiUserName>
-          </Link>
-        </UpiHeader>
-        <UpiImage alt="post" src={imageUrl} />
-        <UpiFooter>
-          <UpiReactionsContainer>
-            {likeStatus ? (
-              <UpiReactionButton
-                type="button"
-                testid="unLikeIcon"
-                onClick={this.onClickLikeButton}
-              >
-                <FcLike className="upi-like-icon" />
-              </UpiReactionButton>
-            ) : (
-              <UpiReactionButton
-                type="button"
-                testid="likeIcon"
-                onClick={this.onClickLikeButton}
-              >
-                <AiOutlineHeart className="upi-unlike-icon" />
-              </UpiReactionButton>
-            )}
+      <ThemeContext.Consumer>
+        {value => {
+          const {isDark} = value
+          return (
+            <UpiCard dark={isDark}>
+              <UpiHeader>
+                <UpiAvatarContainer>
+                  <UpiAvatar alt="post author profile" src={profilePic} />
+                </UpiAvatarContainer>
+                <Link className="upi-username-link" to={`/users/${userId}`}>
+                  <UpiUserName>{userName}</UpiUserName>
+                </Link>
+              </UpiHeader>
+              <UpiImage alt="post" src={imageUrl} />
+              <UpiFooter>
+                <UpiReactionsContainer>
+                  {likeStatus ? (
+                    <UpiReactionButton
+                      type="button"
+                      testid="unLikeIcon"
+                      onClick={this.onClickLikeButton}
+                    >
+                      <FcLike className="upi-like-icon" />
+                    </UpiReactionButton>
+                  ) : (
+                    <UpiReactionButton
+                      type="button"
+                      testid="likeIcon"
+                      onClick={this.onClickLikeButton}
+                    >
+                      <AiOutlineHeart className="upi-unlike-icon" />
+                    </UpiReactionButton>
+                  )}
 
-            <UpiReactionButton type="button">
-              <FaRegComment className="upi-comment-icon" />
-            </UpiReactionButton>
-            <UpiReactionButton type="button">
-              <BiShareAlt className="upi-share-icon" />
-            </UpiReactionButton>
-          </UpiReactionsContainer>
-          <UpiLikesCount>{likesCount + likeStatus} likes</UpiLikesCount>
-          <UpiCaption>{caption}</UpiCaption>
-          {this.renderUserPostComments()}
-          <UpiTime>{createdAt}</UpiTime>
-        </UpiFooter>
-      </UpiCard>
+                  <UpiReactionButton type="button">
+                    <FaRegComment className="upi-comment-icon" />
+                  </UpiReactionButton>
+                  <UpiReactionButton type="button">
+                    <BiShareAlt className="upi-share-icon" />
+                  </UpiReactionButton>
+                </UpiReactionsContainer>
+                <UpiLikesCount>{likesCount + likeStatus} likes</UpiLikesCount>
+                <UpiCaption>{caption}</UpiCaption>
+                {this.renderUserPostComments()}
+                <UpiTime>{createdAt}</UpiTime>
+              </UpiFooter>
+            </UpiCard>
+          )
+        }}
+      </ThemeContext.Consumer>
     )
   }
 }

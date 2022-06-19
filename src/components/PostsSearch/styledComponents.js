@@ -73,16 +73,13 @@ export const SearchResultsContainer = styled.ul`
     width: 85%;
     margin: auto;
     box-shadow: 0px 4px 16px rgba(7, 7, 7, 0.1);
+
     border-radius: 16px;
     padding: 30px;
-    width: 85vw;
-    margin: auto;
-    margin-bottom: 50px;
     padding-bottom: 0px;
   }
   @media screen and (min-width: 1024px) {
     width: 70%;
-
     width: 70vw;
   }
 `

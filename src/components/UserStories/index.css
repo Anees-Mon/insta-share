@@ -67,9 +67,13 @@
   border-bottom: 1px solid #dbdbdb;
 }
 
+.story-footer-rule-dark {
+  border-bottom-color: #000000;
+}
+
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: grey;
 }
 
 .stories-loading-container {

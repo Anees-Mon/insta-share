@@ -3,6 +3,8 @@ import Slider from 'react-slick'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
+import ThemeContext from '../../context/ThemeContext'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -111,7 +113,15 @@ class UserStories extends Component {
               </Slider>
             </div>
           </div>
-          <hr className="story-footer-rule" />
+          <ThemeContext.Consumer>
+            {value => {
+              const {isDark} = value
+              const hrClassName = isDark
+                ? 'story-footer-rule story-footer-rule-dark'
+                : 'story-footer-rule'
+              return <hr className={hrClassName} />
+            }}
+          </ThemeContext.Consumer>
         </>
       )
     )

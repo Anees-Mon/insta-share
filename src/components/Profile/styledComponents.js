@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const UpContainer = styled.div`
   margin-top: 15px;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
   @media screen and (min-width: 768px) {
     width: 85%;
     margin: auto;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
   @media screen and (min-width: 1024px) {
     width: 70%;

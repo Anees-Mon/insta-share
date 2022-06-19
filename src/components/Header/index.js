@@ -70,6 +70,8 @@ class Header extends Component {
   }
 
   render() {
+    const {isSearchActive, isMenuVisible} = this.state
+    const {searchQuery} = this.props
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -79,12 +81,9 @@ class Header extends Component {
           ) : (
             <HiLightBulb className="header-theme-icon" />
           )
-          const {isSearchActive, isMenuVisible} = this.state
-          const {searchQuery} = this.props
-
           return (
             <>
-              <Navbar>
+              <Navbar dark={isDark}>
                 <NavContent>
                   <NavContainer>
                     <Link className="nav-logo-link" to="/">
@@ -155,7 +154,7 @@ class Header extends Component {
                   )}
 
                   {isSearchActive && (
-                    <HeaderSearchContainerSm>
+                    <HeaderSearchContainerSm dark={isDark}>
                       <HeaderSearch
                         type="search"
                         placeholder="Search Caption"
@@ -166,6 +165,7 @@ class Header extends Component {
                         type="button"
                         onClick={this.onClickSearchButton}
                         testid="searchIcon"
+                        dark={isDark}
                       >
                         <FaSearch className="header-search-icon" />
                       </HeaderSearchButton>
@@ -173,7 +173,7 @@ class Header extends Component {
                   )}
 
                   <NavMenuLg>
-                    <HeaderSearchContainerLg>
+                    <HeaderSearchContainerLg dark={isDark}>
                       <HeaderSearch
                         type="search"
                         placeholder="Search Caption"
@@ -184,6 +184,7 @@ class Header extends Component {
                         type="button"
                         onClick={this.onClickSearchButton}
                         testid="searchIcon"
+                        dark={isDark}
                       >
                         <FaSearch className="header-search-icon" />
                       </HeaderSearchButton>
@@ -227,7 +228,7 @@ class Header extends Component {
                   </NavMenuLg>
                 </NavContent>
               </Navbar>
-              <NavbarFooterRule />
+              <NavbarFooterRule dark={isDark} />
             </>
           )
         }}
