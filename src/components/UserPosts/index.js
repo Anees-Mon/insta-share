@@ -3,6 +3,8 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import UserPostItem from '../UserPostItem'
 
+import {UserPostsContainer} from './styledComponents'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -68,11 +70,11 @@ class UserPosts extends Component {
     const {userPosts} = this.state
 
     return (
-      <ul className="user-posts-container">
+      <UserPostsContainer>
         {userPosts.map(eachPost => (
           <UserPostItem key={eachPost.postId} UserPostDetails={eachPost} />
         ))}
-      </ul>
+      </UserPostsContainer>
     )
   }
 

@@ -6,6 +6,26 @@ import {FaSearch} from 'react-icons/fa'
 import {HiLightBulb, HiOutlineLightBulb} from 'react-icons/hi'
 
 import ThemeContext from '../../context/ThemeContext'
+import {
+  Navbar,
+  NavContent,
+  NavContainer,
+  HeaderWebsiteLogo,
+  HeaderWebsiteTitle,
+  HeaderMenuButton,
+  NavMenuSm,
+  NavItem,
+  NavItemButton,
+  SearchTextButton,
+  HeaderThemeButton,
+  HeaderLogoutButton,
+  HeaderSearchContainerSm,
+  HeaderSearch,
+  HeaderSearchButton,
+  NavMenuLg,
+  HeaderSearchContainerLg,
+  NavbarFooterRule,
+} from './styledComponents'
 
 import './index.css'
 
@@ -64,29 +84,27 @@ class Header extends Component {
 
           return (
             <>
-              <nav className="navbar">
-                <div className="nav-content">
-                  <div className="nav-container">
+              <Navbar>
+                <NavContent>
+                  <NavContainer>
                     <Link className="nav-logo-link" to="/">
-                      <img
-                        className="header-website-logo"
+                      <HeaderWebsiteLogo
                         alt="website logo"
                         src="https://res.cloudinary.com/aneesmon/image/upload/v1648277533/Insta_Share/website-logo_yvroxv.png"
                       />
-                      <h1 className="header-website-title">Insta Share</h1>
+                      <HeaderWebsiteTitle>Insta Share</HeaderWebsiteTitle>
                     </Link>
-                    <button
-                      className="header-menu-button"
+                    <HeaderMenuButton
                       onClick={this.onClickHamburgerMenu}
                       type="button"
                     >
                       <IoIosMenu className="header-menu-icon" />
-                    </button>
-                  </div>
+                    </HeaderMenuButton>
+                  </NavContainer>
 
                   {isMenuVisible && (
-                    <ul className="nav-menu-sm">
-                      <li className="nav-item">
+                    <NavMenuSm>
+                      <NavItem>
                         <Link
                           className={`nav-link ${
                             this.getActiveRoute() === '/' &&
@@ -97,9 +115,9 @@ class Header extends Component {
                         >
                           Home
                         </Link>
-                      </li>
-                      <li className="nav-item">
-                        <button
+                      </NavItem>
+                      <NavItem className="nav-item">
+                        <SearchTextButton
                           className={`nav-link ${
                             isSearchActive && 'active-menu'
                           }`}
@@ -107,9 +125,9 @@ class Header extends Component {
                           onClick={this.onClickSearch}
                         >
                           Search
-                        </button>
-                      </li>
-                      <li className="nav-item">
+                        </SearchTextButton>
+                      </NavItem>
+                      <NavItem className="nav-item">
                         <Link
                           className={`nav-link ${
                             this.getActiveRoute() === '/my-profile' &&
@@ -119,68 +137,59 @@ class Header extends Component {
                         >
                           Profile
                         </Link>
-                      </li>
-                      <li className="nav-item">
-                        <button
-                          className="header-theme-button"
-                          type="button"
-                          onClick={toggleTheme}
-                        >
+                      </NavItem>
+                      <NavItem className="nav-item">
+                        <HeaderThemeButton type="button" onClick={toggleTheme}>
                           {themeIcon}
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className="header-logout-button"
+                        </HeaderThemeButton>
+                      </NavItem>
+                      <NavItem>
+                        <HeaderLogoutButton
                           type="button"
                           onClick={this.onClickLogout}
                         >
                           Logout
-                        </button>
-                      </li>
-                    </ul>
+                        </HeaderLogoutButton>
+                      </NavItem>
+                    </NavMenuSm>
                   )}
 
                   {isSearchActive && (
-                    <div className="header-search-container-sm">
-                      <input
-                        className="header-search"
+                    <HeaderSearchContainerSm>
+                      <HeaderSearch
                         type="search"
                         placeholder="Search Caption"
                         value={searchQuery}
                         onChange={this.onChangeSearchQuery}
                       />
-                      <button
-                        className="header-search-button"
+                      <HeaderSearchButton
                         type="button"
                         onClick={this.onClickSearchButton}
                         testid="searchIcon"
                       >
                         <FaSearch className="header-search-icon" />
-                      </button>
-                    </div>
+                      </HeaderSearchButton>
+                    </HeaderSearchContainerSm>
                   )}
 
-                  <ul className="nav-menu-lg">
-                    <li className="nav-item header-search-container-lg">
-                      <input
-                        className="header-search"
+                  <NavMenuLg>
+                    <HeaderSearchContainerLg>
+                      <HeaderSearch
                         type="search"
                         placeholder="Search Caption"
                         value={searchQuery}
                         onChange={this.onChangeSearchQuery}
                       />
-                      <button
-                        className="header-search-button"
+                      <HeaderSearchButton
                         type="button"
                         onClick={this.onClickSearchButton}
                         testid="searchIcon"
                       >
                         <FaSearch className="header-search-icon" />
-                      </button>
-                    </li>
+                      </HeaderSearchButton>
+                    </HeaderSearchContainerLg>
 
-                    <li className="nav-item">
+                    <NavItem>
                       <Link
                         className={`nav-link ${
                           this.getActiveRoute() === '/' && 'active-menu'
@@ -189,9 +198,9 @@ class Header extends Component {
                       >
                         Home
                       </Link>
-                    </li>
+                    </NavItem>
 
-                    <li className="nav-item">
+                    <NavItem>
                       <Link
                         className={`nav-link ${
                           this.getActiveRoute() === '/my-profile' &&
@@ -201,29 +210,24 @@ class Header extends Component {
                       >
                         Profile
                       </Link>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="header-theme-button"
-                        type="button"
-                        onClick={toggleTheme}
-                      >
+                    </NavItem>
+                    <NavItem>
+                      <HeaderThemeButton type="button" onClick={toggleTheme}>
                         {themeIcon}
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        className="header-logout-button"
+                      </HeaderThemeButton>
+                    </NavItem>
+                    <NavItemButton>
+                      <HeaderLogoutButton
                         type="button"
                         onClick={this.onClickLogout}
                       >
                         Logout
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-              <hr className="navbar-footer-rule" />
+                      </HeaderLogoutButton>
+                    </NavItemButton>
+                  </NavMenuLg>
+                </NavContent>
+              </Navbar>
+              <NavbarFooterRule />
             </>
           )
         }}

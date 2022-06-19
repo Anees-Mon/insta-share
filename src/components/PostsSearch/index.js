@@ -2,6 +2,15 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import UserPostItem from '../UserPostItem'
 
+import {
+  PostsSearchTitle,
+  PostsSearchInitialImage,
+  PostsSearchInitialMessage,
+  PostsSearchErrorMessage,
+  PostsSearchErrorDescription,
+  SearchResultsContainer,
+} from './styledComponents'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -18,12 +27,12 @@ class PostsSearch extends Component {
     if (searchResults.length !== 0) {
       return (
         <>
-          <h1 className="posts-search-title">Search Results</h1>
-          <ul className="user-posts-container search-results-container">
+          <PostsSearchTitle>Search Results</PostsSearchTitle>
+          <SearchResultsContainer>
             {searchResults.map(eachPost => (
               <UserPostItem key={eachPost.postId} UserPostDetails={eachPost} />
             ))}
-          </ul>
+          </SearchResultsContainer>
         </>
       )
     }
@@ -34,24 +43,23 @@ class PostsSearch extends Component {
           alt="search not found"
           src="https://res.cloudinary.com/aneesmon/image/upload/v1648988144/Insta_Share/search-not-found-image_pgjuwz.png"
         />
-        <h1 className="posts-search-error-message">Search Not Found</h1>
-        <p className="posts-search-error-description">
+        <PostsSearchErrorMessage>Search Not Found</PostsSearchErrorMessage>
+        <PostsSearchErrorDescription>
           Try different keyword or search again
-        </p>
+        </PostsSearchErrorDescription>
       </div>
     )
   }
 
   renderInitialView = () => (
     <div className="user-profile-loader-container">
-      <img
-        className="posts-search-initial-image"
-        alt=""
+      <PostsSearchInitialImage
+        alt="initial image"
         src="https://res.cloudinary.com/aneesmon/image/upload/v1649495550/Insta_Share/search-initial_oyoblm.png"
       />
-      <h1 className="posts-search-initial-message">
+      <PostsSearchInitialMessage>
         Search Results will be appear here
-      </h1>
+      </PostsSearchInitialMessage>
     </div>
   )
 

@@ -2,6 +2,33 @@ import {BsGrid3X3} from 'react-icons/bs'
 import {BiCamera} from 'react-icons/bi'
 
 import Header from '../Header'
+import {
+  UpContainer,
+  UpHeader,
+  UpAvatarLg,
+  UpName,
+  UpAvatarCountsContainer,
+  UpAvatarSm,
+  UpCountsContainer,
+  UpCountItem,
+  UpCountValue,
+  UpCountLabel,
+  UpUsername,
+  UpBio,
+  UpStoriesContainer,
+  UpStoryItem,
+  UpStoryImage,
+  UpHorizontalRule,
+  UpTab,
+  UpTabLabel,
+  UpInfoContainer,
+  UpPostsContainer,
+  UpPostContainer,
+  UpPostImage,
+  UpNoPostsContainer,
+  UpNoPostsIconContainer,
+  UpNoPostsMessage,
+} from './styledComponents'
 
 import './index.css'
 
@@ -12,20 +39,16 @@ const Profile = props => {
 
     if (stories.length !== 0) {
       return (
-        <ul className="up-stories-container">
+        <UpStoriesContainer>
           {stories.map(eachItem => {
             const {id, image} = eachItem
             return (
-              <li className="up-story-item" key={id}>
-                <img
-                  className="up-story-image"
-                  alt={`${owner} story`}
-                  src={image}
-                />
-              </li>
+              <UpStoryItem key={id}>
+                <UpStoryImage alt={`${owner} story`} src={image} />
+              </UpStoryItem>
             )
           })}
-        </ul>
+        </UpStoriesContainer>
       )
     }
     return null
@@ -37,29 +60,25 @@ const Profile = props => {
 
     if (posts.length !== 0) {
       return (
-        <ul className="up-posts-container">
+        <UpPostsContainer>
           {posts.map(eachItem => {
             const {id, image} = eachItem
             return (
-              <li className="up-post-container" key={id}>
-                <img
-                  className="up-post-image"
-                  alt={`${owner} post`}
-                  src={image}
-                />
-              </li>
+              <UpPostContainer key={id}>
+                <UpPostImage alt={`${owner} post`} src={image} />
+              </UpPostContainer>
             )
           })}
-        </ul>
+        </UpPostsContainer>
       )
     }
     return (
-      <div className="up-no-posts-container">
-        <div className="up-no-posts-icon-container">
+      <UpNoPostsContainer>
+        <UpNoPostsIconContainer>
           <BiCamera className="up-no-posts-icon" />
-        </div>
-        <h1 className="up-no-posts-message">No Posts Yet</h1>
-      </div>
+        </UpNoPostsIconContainer>
+        <UpNoPostsMessage>No Posts Yet</UpNoPostsMessage>
+      </UpNoPostsContainer>
     )
   }
 
@@ -77,47 +96,43 @@ const Profile = props => {
   return (
     <>
       <Header />
-      <div className="up-container">
-        <div className="up-header">
-          <div className="up-info-container">
-            <img className="up-avatar-lg" alt="" src={profilePic} />
+      <UpContainer>
+        <UpHeader>
+          <UpInfoContainer>
+            <UpAvatarLg alt="profile picture" src={profilePic} />
             <div>
-              <h1 className="up-name">{userName}</h1>
-              <div className="up-avatar-counts-container">
-                <img
-                  className="up-avatar-sm"
-                  alt={`${owner} profile`}
-                  src={profilePic}
-                />
-                <ul className="up-counts-container">
-                  <li className="up-count-item">
-                    <h1 className="up-count-value">{postsCount}</h1>
-                    <p className="up-count-label">posts</p>
-                  </li>
-                  <li className="up-count-item">
-                    <h1 className="up-count-value">{followersCount}</h1>
-                    <p className="up-count-label">followers</p>
-                  </li>
-                  <li className="up-count-item">
-                    <h1 className="up-count-value">{followingCount}</h1>
-                    <p className="up-count-label">following</p>
-                  </li>
-                </ul>
-              </div>
-              <p className="up-username">{userId}</p>
-              <p className="up-bio">{userBio}</p>
+              <UpName>{userName}</UpName>
+              <UpAvatarCountsContainer>
+                <UpAvatarSm alt={`${owner} profile`} src={profilePic} />
+                <UpCountsContainer>
+                  <UpCountItem>
+                    <UpCountValue>{postsCount}</UpCountValue>
+                    <UpCountLabel>posts</UpCountLabel>
+                  </UpCountItem>
+                  <UpCountItem>
+                    <UpCountValue>{followersCount}</UpCountValue>
+                    <UpCountLabel>followers</UpCountLabel>
+                  </UpCountItem>
+                  <UpCountItem>
+                    <UpCountValue>{followingCount}</UpCountValue>
+                    <UpCountLabel>following</UpCountLabel>
+                  </UpCountItem>
+                </UpCountsContainer>
+              </UpAvatarCountsContainer>
+              <UpUsername>{userId}</UpUsername>
+              <UpBio>{userBio}</UpBio>
             </div>
-          </div>
+          </UpInfoContainer>
 
           {renderStories()}
-        </div>
-        <hr className="up-horizontal-rule" />
-        <div className="up-tab">
+        </UpHeader>
+        <UpHorizontalRule />
+        <UpTab>
           <BsGrid3X3 className="up-tab-icon" />
-          <h1 className="up-tab-label">Posts</h1>
-        </div>
+          <UpTabLabel>Posts</UpTabLabel>
+        </UpTab>
         {renderPosts()}
-      </div>
+      </UpContainer>
     </>
   )
 }

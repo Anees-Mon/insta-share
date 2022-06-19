@@ -6,6 +6,25 @@ import {FaRegComment} from 'react-icons/fa'
 import {BiShareAlt} from 'react-icons/bi'
 import {FcLike} from 'react-icons/fc'
 
+import {
+  UpiCard,
+  UpiHeader,
+  UpiAvatarContainer,
+  UpiAvatar,
+  UpiUserName,
+  UpiImage,
+  UpiFooter,
+  UpiReactionsContainer,
+  UpiReactionButton,
+  UpiLikesCount,
+  UpiCaption,
+  UpiCommentsContainer,
+  UpiCommentItem,
+  UpiCommentUsername,
+  UpiComment,
+  UpiTime,
+} from './styledComponents'
+
 import './index.css'
 
 class UserPostItem extends Component {
@@ -36,19 +55,19 @@ class UserPostItem extends Component {
     const {UserPostDetails} = this.props
     const {comments} = UserPostDetails
     return (
-      <ul className="upi-comments-container">
+      <UpiCommentsContainer>
         {comments.map(eachComment => {
           const {userId, userName, comment} = eachComment
           return (
-            <li className="upi-comment-item" key={userId}>
-              <p className="upi-comment">
-                <span className="upi-comment-username">{userName}</span>
+            <UpiCommentItem key={userId}>
+              <UpiComment>
+                <UpiCommentUsername>{userName}</UpiCommentUsername>
                 {comment}
-              </p>
-            </li>
+              </UpiComment>
+            </UpiCommentItem>
           )
         })}
-      </ul>
+      </UpiCommentsContainer>
     )
   }
 
@@ -66,55 +85,49 @@ class UserPostItem extends Component {
     const {caption, imageUrl} = postDetails
 
     return (
-      <li className="upi-card">
-        <div className="upi-header">
-          <div className="upi-avatar-container">
-            <img
-              className="upi-avatar"
-              alt="post author profile"
-              src={profilePic}
-            />
-          </div>
+      <UpiCard>
+        <UpiHeader>
+          <UpiAvatarContainer>
+            <UpiAvatar alt="post author profile" src={profilePic} />
+          </UpiAvatarContainer>
           <Link className="upi-username-link" to={`/users/${userId}`}>
-            <p className="upi-user-name">{userName}</p>
+            <UpiUserName>{userName}</UpiUserName>
           </Link>
-        </div>
-        <img className="upi-image" alt="post" src={imageUrl} />
-        <div className="upi-footer">
-          <div className="upi-reactions-container">
+        </UpiHeader>
+        <UpiImage alt="post" src={imageUrl} />
+        <UpiFooter>
+          <UpiReactionsContainer>
             {likeStatus ? (
-              <button
-                className="upi-reaction-button"
+              <UpiReactionButton
                 type="button"
                 testid="unLikeIcon"
                 onClick={this.onClickLikeButton}
               >
                 <FcLike className="upi-like-icon" />
-              </button>
+              </UpiReactionButton>
             ) : (
-              <button
-                className="upi-reaction-button"
+              <UpiReactionButton
                 type="button"
                 testid="likeIcon"
                 onClick={this.onClickLikeButton}
               >
                 <AiOutlineHeart className="upi-unlike-icon" />
-              </button>
+              </UpiReactionButton>
             )}
 
-            <button className="upi-reaction-button" type="button">
+            <UpiReactionButton type="button">
               <FaRegComment className="upi-comment-icon" />
-            </button>
-            <button className="upi-reaction-button" type="button">
+            </UpiReactionButton>
+            <UpiReactionButton type="button">
               <BiShareAlt className="upi-share-icon" />
-            </button>
-          </div>
-          <p className="upi-likes-count">{likesCount + likeStatus} likes</p>
-          <p className="upi-caption">{caption}</p>
+            </UpiReactionButton>
+          </UpiReactionsContainer>
+          <UpiLikesCount>{likesCount + likeStatus} likes</UpiLikesCount>
+          <UpiCaption>{caption}</UpiCaption>
           {this.renderUserPostComments()}
-          <p className="upi-time">{createdAt}</p>
-        </div>
-      </li>
+          <UpiTime>{createdAt}</UpiTime>
+        </UpiFooter>
+      </UpiCard>
     )
   }
 }

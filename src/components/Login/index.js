@@ -2,6 +2,21 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
+import {
+  LoginPage,
+  LoginImageLg,
+  LoginContainer,
+  LoginTitleContainer,
+  LoginWebsiteLogo,
+  LoginWebsiteTitle,
+  LoginLabel,
+  LoginInput,
+  LoginErrorMsg,
+  LoginButton,
+  LoginCard,
+  LineBreak,
+} from './styledComponents'
+
 import './index.css'
 
 class Login extends Component {
@@ -45,50 +60,40 @@ class Login extends Component {
     }
 
     return (
-      <div className="login-page">
-        <div className="login-container">
-          <img
-            className="login-image-lg"
+      <LoginPage>
+        <LoginContainer>
+          <LoginImageLg
             alt="website login"
             src="https://res.cloudinary.com/aneesmon/image/upload/v1648363086/Insta_Share/login-image_q0hj2s.png"
           />
-          <form className="login-card" onSubmit={this.onSubmitLogin}>
-            <div className="login-title-container">
-              <img
-                className="login-website-logo"
+          <LoginCard onSubmit={this.onSubmitLogin}>
+            <LoginTitleContainer>
+              <LoginWebsiteLogo
                 alt="website logo"
                 src="https://res.cloudinary.com/aneesmon/image/upload/v1648277533/Insta_Share/website-logo_yvroxv.png"
               />
-              <h1 className="login-website-title">Insta Share</h1>
-            </div>
-            <label className="login-label" htmlFor="username">
-              USERNAME
-            </label>
+              <LoginWebsiteTitle>Insta Share</LoginWebsiteTitle>
+            </LoginTitleContainer>
+            <LoginLabel htmlFor="username">USERNAME</LoginLabel>
             <br />
-            <input
-              className="login-input"
+            <LoginInput
               id="username"
               type="text"
               onChange={this.onChangeUsername}
             />
 
-            <label className="login-label" htmlFor="password">
-              PASSWORD
-            </label>
-            <br />
-            <input
-              className="login-input"
+            <LoginLabel htmlFor="password">PASSWORD</LoginLabel>
+            <LineBreak />
+            <LoginInput
               id="password"
               type="password"
               onChange={this.onChangePassword}
             />
-            <p className="login-error-msg">{errorMsg}</p>
-            <button className="login-button" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
-      </div>
+            <LoginErrorMsg>{errorMsg}</LoginErrorMsg>
+            <LoginButton type="submit">Login</LoginButton>
+          </LoginCard>
+        </LoginContainer>
+      </LoginPage>
     )
   }
 }
